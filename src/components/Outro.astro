@@ -1,0 +1,71 @@
+<div class="bg-wrapper">
+    <section id="outro-1">
+        <p>Congratulations! <span>You</span> have reached the end</p>
+    </section>
+    <section id="outro-2">
+        <p id="repeat">do it again?</p>
+    </section>
+</div>
+
+<style>
+    section {
+        height: 100vh;
+        display: grid;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    section:last-of-type {
+        place-items: center;
+    }
+
+    section:first-of-type p {
+        font-family: 'Bosch';
+        font-size: min(16vw, 230px);
+        width: max-content;
+    }
+
+    #repeat {
+        font-family: 'Space Grotesk';
+        font-size: 3rem;
+    }
+
+    p span {
+        font-family: 'Space Grotesk';
+    }
+
+    p {
+        user-select: none;
+    }
+
+    #outro-2 p:hover {
+        cursor: pointer;
+    }
+
+    @media (max-width: 1024px) {
+        #repeat {
+            font-size: 2rem;
+        }
+    }
+</style>
+
+<script type="module">
+    gsap.to('#outro-1 p', {
+        scrollTrigger: {
+            trigger: '#outro-1', 
+            start: 'top top', 
+            end: '+=200%',
+            pin: true, 
+            scrub: 1
+        }, 
+        xPercent: -100, 
+        ease: 'none',
+        duration: 10
+    })
+
+    const repeat = document.getElementById('repeat')
+
+    repeat.addEventListener('click', () => {
+        window.scrollTo(0, 0)
+    })
+</script>

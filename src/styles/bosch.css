@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "Bosch";
+  src: url("/fonts/BoschRegular.woff2") format("woff2"),
+    url("/fonts/BoschRegular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

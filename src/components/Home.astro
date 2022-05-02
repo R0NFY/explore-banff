@@ -1,0 +1,217 @@
+<div class="container home-container">
+    <h1 class="h"><span><span>Explore</span></span> <span><span>the beauty</span></span> <span><span>of Banff</span></span></h1>
+    <div class="img-wrapper">
+        <div class="h"><span><span>Explore</span></span> <span><span>the beauty</span></span> <span><span>of Banff</span></span></div>
+        <img
+            sizes="(max-width: 1440px) 100vw, 1440px"
+            srcset="
+            /images/home/home_z28vhe_c_scale,w_320.jpg 320w,
+            /images/home/home_z28vhe_c_scale,w_755.jpg 755w,
+            /images/home/home_z28vhe_c_scale,w_1060.jpg 1060w,
+            /images/home/home_z28vhe_c_scale,w_1313.jpg 1313w,
+            /images/home/home_z28vhe_c_scale,w_1440.jpg 1440w"
+            src="/images/home/home_z28vhe_c_scale,w_1440.jpg"
+            alt="Banff"
+        >
+    </div>
+    <div id="about-btn" class="btn-wrapper">
+        <button><span>About</span></button>
+    </div>
+    <div class="scroll-indicator">
+        <p><span>Go Down</span></p>
+        <img src="/svg/down-duo.svg" alt="scroll indicator">
+    </div>
+</div>
+
+<style>
+    .home-container {
+        z-index: 0;
+    }
+    .container {
+        height: 100vh;
+        justify-items: center;
+        justify-self: center;
+    }
+    
+    .container > h1, .container > .img-wrapper {
+        align-self: center;
+    }
+    .img-wrapper {
+        grid-column: 4 / span 6;
+        display: grid;
+        place-items: center;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .img-wrapper img {
+        object-fit: fill;
+    }
+
+    .img-wrapper div {
+        color: white;
+        z-index: 100;
+    }
+
+    .h {
+        font-size: min(16vw, 230px);
+        width: 8.85ch;
+        position: absolute;
+        text-align: center;
+        font-family: 'Bosch';
+        font-weight: normal;
+    }
+
+    .btn-wrapper {
+        grid-column-start: 12;
+        justify-self: end;
+        position: absolute;
+    }
+
+    button {
+        font-size: 2rem;
+        margin-top: 40px;
+        overflow: hidden;
+    }
+
+    button:hover {
+        cursor: pointer;
+    }
+
+    button span, .scroll-indicator span {
+        display: block;
+    }
+
+    .scroll-indicator p {
+        overflow: hidden;
+    }
+
+    .scroll-indicator {
+        font-size: 2rem;
+        grid-column-start: 12;
+        place-self: end;
+        margin-bottom: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: max-content;
+        position: absolute;
+    }
+
+    .scroll-indicator img {
+        width: 3rem;
+        opacity: 0
+    }
+
+    .h > span {
+        display: block;
+        overflow: hidden;
+    }
+
+    .h > span > span {
+        display: block;
+    }
+
+    @media (max-width: 1280px) {
+        button, .scroll-indicator {
+            font-size: 1.5rem;
+        }
+    }
+
+    @media (max-width: 540px) {
+        button, .scroll-indicator {
+            font-size: 1.2rem;
+        }
+    }
+</style>
+
+<script type="module">
+    // load animations 
+    gsap.defaults({
+        delay: 0.5, 
+        ease: "power1.out", 
+        duration: 1
+    })
+
+    const animateHeading = (target) => {
+        gsap.from(target, {
+            yPercent: 100, 
+            stagger: 0.1,
+        })
+    }
+
+    const animateSecondary = (target) => {
+        gsap.from(target, {
+            yPercent: 80, 
+            ease: "power2.out"
+        })
+    }
+
+    const animateImg = (target) => {
+        gsap.from(target, {
+            scale: 1.5, 
+            opacity: 0, 
+        })
+    }
+
+    const animateArrow = (target) => {
+        gsap.to(target, {
+            delay: 1.25,
+            duration: 3,
+            keyframes: {
+                '0%': {yPercent: 0, opacity: 0}, 
+                '25%': {yPercent: 15, opacity: 0.5}, 
+                '66%': {yPercent: -10}, 
+                '100%': {yPercent: 0, opacity: 1}, 
+            }
+        })
+    }
+
+    animateHeading('h1 > span > span')
+    animateHeading('div > span > span')
+    animateSecondary('button span, p span')
+    animateImg('.img-wrapper img')
+    animateArrow('.scroll-indicator img')
+
+    // scroll animations
+
+    gsap.registerPlugin(ScrollTrigger)
+
+    gsap.to('.h', {
+        scrollTrigger: {
+            trigger: 'h1', 
+            start: '-50% top', 
+            end: '+=100%', 
+            scrub: 1
+        }, 
+        y: '-20%'
+    })
+    
+    gsap.to('.scroll-indicator', {
+        scrollTrigger: {
+            trigger: 'h1', 
+            start: '-50% top', 
+            end: '+=100%', 
+            scrub: 1
+        }, 
+        y: '-30%'
+    })
+
+    gsap.to('.home-container', {
+    scrollTrigger: {
+            trigger: '.home-container', 
+            start: 'top top', 
+            pin: true,
+            pinSpacing: false, 
+        }
+    })
+
+    // menu logic
+    const aboutBtn = document.querySelector('.btn-wrapper button')
+    const aboutContainer = document.getElementById('about')
+
+    aboutBtn.addEventListener('click', () => {
+        aboutContainer.classList.add('open')
+    })
+</script>

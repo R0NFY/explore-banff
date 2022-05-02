@@ -1,0 +1,128 @@
+<div class="bg-wrapper" id="about">
+    <div class="container">
+        <div class="wrapper">
+            <p>Created with love by @r0nfy as a small personal project</p>
+            <section class="thanks">
+                <h3>Huge thanks to</h3>
+                <ul>
+                    <li><a href="https://unsplash.com/" target="_blank" rel="noopener noreferrer">Unsplash</a> for images</li>
+                    <li>iframe design studio for font <a href="https://www.behance.net/gallery/109018951/Bosch-Display-Font" target="_blank" rel="noopener noreferrer">Bosch</a></li>
+                    <li>Florian Karsten for typeface <a href="https://fonts.google.com/specimen/Space+Grotesk?query=space+grotesk" target="_blank" rel="noopener noreferrer">Space Grotesk</a></li>
+                </ul>
+            </section>
+        </div>
+        <button id="close">
+            <img src="/misc/close-btn.svg" alt="Close Button">
+        </button>
+    </div>
+</div>
+
+<style>
+
+.bg-wrapper {
+    clip-path: circle(0% at 120% -10%);
+    transition: 1s ease-out;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+}
+
+.open {
+    clip-path: circle(75%);
+}
+
+.container {
+    height: 100vh;
+    z-index: 100;
+}
+
+.wrapper {
+    grid-column: 4 / 10;
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+}
+
+button {
+    grid-column: 12;
+    width: 30px;
+    align-self: flex-start;
+    margin-top: 2.5rem;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+p, h3 {
+    font-size: 3rem;
+}
+
+.thanks {
+    margin-top: 5rem;
+}
+
+ul {
+    list-style-type: '- ';
+    margin-top: 0.6em;
+    font-size: 2.5rem;
+}
+
+a {
+    color: #636363;
+    text-decoration: none;
+}
+
+@media (max-width: 1280px) {
+    p, h3 {
+        font-size: 2.25rem;
+    }
+
+    ul {
+        font-size: 1.875rem;
+    }
+
+    .thanks {
+        margin-top: 3.75rem;
+    }
+
+    .wrapper {
+        grid-column: 3 / 11;
+    }
+}
+
+@media (max-width: 768px) {
+    p, h3 {
+        font-size: 1.8rem;
+    }
+
+    ul {
+        font-size: 1.5rem;
+    }
+
+    .thanks {
+        margin-top: 3rem;
+    }
+
+    .wrapper {
+        grid-column: 2 / 12;
+    }
+}
+
+@media (max-width: 425px) {
+    .container {
+        margin-inline: 25px;
+    }
+}
+
+</style>
+
+<script>
+    const closeBtn = document.getElementById('close')
+
+    const aboutContainer = document.getElementById('about')
+
+    closeBtn.addEventListener('click', () => {
+        aboutContainer.classList.remove('open')
+    })
+</script>

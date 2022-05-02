@@ -1,0 +1,194 @@
+<div class="bg-wrapper" id="gallery">
+    <div class="container">
+        <div class="col-1">
+            <section>
+                <div class="img-container">
+                    <img
+                    sizes="(max-width: 1440px) 100vw, 1440px"
+                    srcset="
+                    /images/lonely-mountain/lonely-mountain_grqqgv_c_scale,w_320.jpg 320w,
+                    /images/lonely-mountain/lonely-mountain_grqqgv_c_scale,w_1015.jpg 1015w,
+                    /images/lonely-mountain/lonely-mountain_grqqgv_c_scale,w_1321.jpg 1321w,
+                    /images/lonely-mountain/lonely-mountain_grqqgv_c_scale,w_1417.jpg 1417w,
+                    /images/lonely-mountain/lonely-mountain_grqqgv_c_scale,w_1440.jpg 1440w"
+                    src="/images/lonely-mountain/lonely-mountain_grqqgv_c_scale,w_1440.jpg"
+                    alt="Lonely Mountain">
+                </div>
+                <h2>Town of Banff</h2>
+                <p>Banff is located in Alberta's Rockies along the Trans-Canada Highway</p>
+            </section>
+            <section>
+                <div class="img-container">
+                <img
+                    sizes="(max-width: 1440px) 100vw, 1440px"
+                    srcset="
+                    /images/moraine-lake/moraine-lake_fnrbgy_c_scale,w_320.jpg 320w,
+                    /images/moraine-lake/moraine-lake_fnrbgy_c_scale,w_733.jpg 733w,
+                    /images/moraine-lake/moraine-lake_fnrbgy_c_scale,w_1036.jpg 1036w,
+                    /images/moraine-lake/moraine-lake_fnrbgy_c_scale,w_1281.jpg 1281w,
+                    /images/moraine-lake/moraine-lake_fnrbgy_c_scale,w_1440.jpg 1440w"
+                    src="/images/moraine-lake/moraine-lake_fnrbgy_c_scale,w_1440.jpg"
+                    alt="Moraine Lake">
+                </div>
+                <h2>Moraine Lake</h2>
+                <p>This lake, featured twice on the $20 bill, is the crown jewel of Banff National Park</p>
+            </section>
+        </div>
+        <div class="col-2">
+            <section>
+                <div class="img-container">
+                <img
+                    sizes="(max-width: 1440px) 100vw, 1440px"
+                    srcset="
+                    /images/mount-rudle/mount-rudle_xmwot1_c_scale,w_320.jpg 320w,
+                    /images/mount-rudle/mount-rudle_xmwot1_c_scale,w_718.jpg 718w,
+                    /images/mount-rudle/mount-rudle_xmwot1_c_scale,w_995.jpg 995w,
+                    /images/mount-rudle/mount-rudle_xmwot1_c_scale,w_1245.jpg 1245w,
+                    /images/mount-rudle/mount-rudle_xmwot1_c_scale,w_1440.jpg 1440w"
+                    src="/images/mount-rudle/mount-rudle_xmwot1_c_scale,w_1440.jpg"
+                alt="Mount Rudle">
+                </div>
+                <h2>Lonely Mountain</h2>
+                <p>Nothing satisfies Tolkien fans more than seeing the Lonely Mountain in the heart of Canada</p>
+            </section>
+            <section>
+                <div class="img-container">
+                <img
+                    sizes="(max-width: 1440px) 100vw, 1440px"
+                    srcset="
+                    /images/town-of-banff/town-of-banff_oja4bs_c_scale,w_320.jpg 320w,
+                    /images/town-of-banff/town-of-banff_oja4bs_c_scale,w_724.jpg 724w,
+                    /images/town-of-banff/town-of-banff_oja4bs_c_scale,w_1056.jpg 1056w,
+                    /images/town-of-banff/town-of-banff_oja4bs_c_scale,w_1278.jpg 1278w,
+                    /images/town-of-banff/town-of-banff_oja4bs_c_scale,w_1440.jpg 1440w"
+                    src="/images/town-of-banff/town-of-banff_oja4bs_c_scale,w_1440.jpg"
+                alt="Town of Banff">
+                </div>
+                <h2>Mount Rudle</h2>
+                <p>Mt. Rundle, the prominent wedge-shaped peak is one of the most popular climbs in the Canadian Rockies</p>
+            </section>
+        </div>
+    </div>
+</div>
+
+<style>
+    #gallery {
+        position: relative;
+    }
+
+    .container {
+        padding-top: 6rem;
+    }
+
+    .col-1 {
+        grid-column: span 6;
+    }
+
+    .col-1 p {
+        max-width: 80%;
+    }
+
+    .col-2 {
+        grid-column: 8 / span 5;
+    }
+
+    section:first-of-type {
+        margin-bottom: 5rem;
+    }
+
+    h2 {
+        font-size: 2.75rem;
+        margin-top: .5em;
+        margin-bottom: calc(1em / 6);
+    }
+    
+    p {
+        font-size: 2rem;
+        line-height: 120%;
+    }
+
+    .img-container {
+        overflow: hidden;
+    }
+
+    @media (max-width: 1280px) {
+        h2 {
+            font-size: 2.25rem;
+        }
+
+        p {
+            font-size: 1.6875rem;
+        }
+        section:first-of-type {
+            margin-bottom: 3.75rem;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .col-1, .col-2 {
+            grid-column: span 12;
+        }
+
+        .col-1 p, .col-2 p {
+            max-width: 100%;
+        }
+
+        section {
+            margin-bottom: 4rem !important;
+        }
+
+    }
+
+    @media (max-width: 540px) {
+        h2 {
+            font-size: 1.8rem;
+        }
+
+        p {
+            font-size: 1.35rem;
+        }
+        
+        section {
+            margin-bottom: 3rem !important;
+        }
+    }
+</style>
+
+<script type="module">
+// scroll animations
+
+ScrollTrigger.matchMedia({
+    "(min-width: 1024px)": () => {
+        gsap.to('.col-1', {
+            scrollTrigger: {
+                trigger: '.col-1', 
+                start: 'top top', 
+                end: '+=150%', 
+                scrub: true
+            }, 
+            yPercent: -10
+        }) 
+        gsap.to('.col-2', {
+            scrollTrigger: {
+                trigger: '.col-2', 
+                start: 'top top', 
+                end: '+=150%', 
+                scrub: true
+            }, 
+            yPercent: 20
+        }) 
+    }
+})
+
+gsap.to('section img', {
+    scrollTrigger: {
+        trigger: 'section img', 
+        start: '-100% top', 
+        end: '+=150%', 
+        scrub: 1, 
+        stagger: 1
+    }, 
+    scale: 1.1
+}) 
+
+</script>
